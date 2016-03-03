@@ -9,12 +9,9 @@
 * Composer
 * phpMyAdmin 4.0
 * Adminer 4.1.0
-* Redis 2.8 ( + PhpRedis)
-* MongoDB 2.6.1 ( + php_mongo)
 * PostgreSQL 9.3
 * Sqlite 2.8.17
 * Memcached 1.4.14 ( + php5_memcached)
-* Imported [Sakila DB](http://dev.mysql.com/doc/sakila/en/) for playing around
 * And of course Yii2 Advanced Project template imported
 * Local IP loop on Host machine `/etc/hosts` and Virtual hosts in Nginx already set up too !
 
@@ -58,6 +55,7 @@ Ok, now if everything went fine you can access these Urls in your browser
 * [http://admin.yii2.local/](http://admin.yii2.local/)  -  backend app
 * [http://phpmyadmin.yii2.local/](http://phpmyadmin.yii2.local/) - phpMyAdmin
 * [http://adminer.yii2.local/](http://adminer.yii2.local/) - Adminer (Lightweight and simple GUI manager for MySQL, PostgreSQL, SQLite, MS SQL, Oracle, SimpleDB, Elasticsearch and MongoDB)
+* [http://media.yii2.local/](http://media.yii2.local) - Special project for shared images, css, js, etc.
 
 * Gii code generator should be called like this [http://yii2.local/index.php?r=gii](http://yii2.local/index.php?r=gii)
 
@@ -107,13 +105,5 @@ Press - Preview and then Generate
 
 * In `try-yii2` folder run `vagrant ssh` to access virtual dev server via SSH. You can modify and setup additionally anything you want.
 * Or modify Ansible provisioning YML files (if you are familiar with it) and run `vagrant provision` to update server config (WARNING! I can't guarantee that your changes will not be overwritten!)
-
-## TODO :
-
-* Sphinx
-* Elastic Search
-* CUBRID
-* yii-basic-template checkout (http://basic.yii2.local)
-* automatic Model / CRUD generation via Cli command
 
 ### Made by [Evgeniy Kuzminov](http://stdout.in). Thanks for support to [Anton Logvinenko](http://anton.logvinenko.name/).
