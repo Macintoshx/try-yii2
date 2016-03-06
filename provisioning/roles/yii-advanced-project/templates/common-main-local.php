@@ -8,11 +8,6 @@ return [
             'password' => '{{ mysql_pass }}',
             'charset' => 'utf8',
         ],
-        'mail' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'viewPath' => '@common/mail',
-            'useFileTransport' => true,
-        ],
         'request' => [
             'enableCookieValidation' => true,
             'enableCsrfValidation' => true,

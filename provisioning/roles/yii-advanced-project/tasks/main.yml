@@ -1,8 +1,20 @@
 - name: clone advanced project temaplate
   shell: composer create-project --prefer-dist --stability=dev yiisoft/yii2-app-advanced /var/www/project creates=/var/www/project
 
+- name: mkdir /var/www/project/media
+  shell: mkdir /var/www/project/media creates=/var/www/project/media
+  
+- name: mkdir /var/www/project/media/web
+  shell: mkdir /var/www/project/media/web creates=/var/www/project/media/web
+  
+- name: install advanced project temaplate
+  shell: chdir="/var/www/project/" composer install --prefer-dist
+  
+- name: global require
+  shell: composer global require "fxp/composer-asset-plugin"
+  
 - name: update advanced project temaplate
-  shell: chdir="/var/www/project/" composer update --prefer-dist -o
+  shell: chdir="/var/www/project/" composer update --prefer-dist
 
 - name: set Init run permissions
   file: path=/var/www/project/init mode=0744
@@ -18,8 +30,14 @@
    - backend-main-local.php
 
 - name: set Local config with correct MySQL connection etc. (2 steps to fix Windows shared folder error)
-  command: mv /tmp/{{item.src}} {{item.dest}}
+  command: cp /tmp/{{item.src}} {{item.dest}}
   with_items:
+   - { src: 'common-main-local.php', dest: '/var/www/project/environments/dev/common/config/main-local.php' }
+   - { src: 'frontend-main-local.php', dest: '/var/www/project/environments/dev/frontend/config/main-local.php' }
+   - { src: 'backend-main-local.php', dest: '/var/www/project/environments/dev/backend/config/main-local.php' }
+   - { src: 'common-main-local.php', dest: '/var/www/project/environments/prod/common/config/main-local.php' }
+   - { src: 'frontend-main-local.php', dest: '/var/www/project/environments/prod/frontend/config/main-local.php' }
+   - { src: 'backend-main-local.php', dest: '/var/www/project/environments/prod/backend/config/main-local.php' }
    - { src: 'common-main-local.php', dest: '/var/www/project/common/config/main-local.php' }
    - { src: 'frontend-main-local.php', dest: '/var/www/project/frontend/config/main-local.php' }
    - { src: 'backend-main-local.php', dest: '/var/www/project/backend/config/main-local.php' }
