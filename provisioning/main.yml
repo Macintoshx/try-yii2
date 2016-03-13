@@ -4,7 +4,7 @@
   vars:
     # [OPTIONAL] GitHub OAuth token to extend API rate limit
     # How to generate it: https://github.com/blog/1509-personal-api-tokens
-    #- github_oauth_token: "YOUR_TOKEN" # Uncommend and add GitHub OAuth Token here!
+    - github_oauth_token: "c6ef3db6d141ad411a807fc19d0dee98d9f6519d" # Uncommend and add GitHub OAuth Token here!
   vars_files:
     - defaults/variables.yml
 
